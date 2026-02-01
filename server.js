@@ -30,13 +30,11 @@ app.get('/api/test', (req, res) => {
 });
 
 // ----- SERVIR LE FRONT REACT -----
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
-// Toutes les autres routes renvoient index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
-
 // ----- PORT -----
 const PORT = process.env.PORT || 5000;
 
